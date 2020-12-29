@@ -10,4 +10,18 @@ describe("Pruebas en PrimaraApp", () => {
     const wrapper = shallow(<PrimeraApp saludo={saludo} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  test('debe de mostrar el subtitulo enviado por props"', () => {
+    const saludo = "Hola, soy goku";
+    const subtitulo = "Soy un subtitulo";
+    const wrapper = shallow(
+      <PrimeraApp saludo={saludo} subtitulo={subtitulo} />
+    );
+    const textoParrafo = wrapper.find("p").text();
+    console.log(
+      "🚀 ~ file: PrimeraApp.test.js ~ line 20 ~ test ~ textoParrafo",
+      textoParrafo
+    );
+    expect(textoParrafo).toBe(subtitulo);
+  });
 });
